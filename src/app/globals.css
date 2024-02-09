@@ -1,21 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@keyframes;
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
-
+/* html {
+  font-family: "Times New Roman", Times, serif;
+} */
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,12 +18,6 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
 
 button {
@@ -80,4 +68,74 @@ button {
 
 .pulsating-text {
   animation: pulse 3s infinite;
+}
+
+#slider {
+  position: absolute;
+  /* width: 100px;
+  height: 100px;
+  background: blue; */
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+}
+.her {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px -10px 16px rgb(255, 59, 134);
+}
+.her2 {
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 0px 10px 16px rgb(255, 59, 134);
+}
+
+.slide-in {
+  animation: slide-in 1s forwards;
+  -webkit-animation: slide-in 1s forwards;
+}
+.slide-in2 {
+  z-index: 10000;
+  animation: slide-in2 1s forwards;
+  -webkit-animation: slide-in2 1s forwards;
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateY(40%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  100% {
+    -webkit-transform: translateY(40%);
+  }
+}
+@keyframes slide-in2 {
+  100% {
+    transform: translateY(140%);
+  }
+}
+
+@-webkit-keyframes slide-in2 {
+  100% {
+    -webkit-transform: translateY(140%);
+  }
+}
+
+.flipUp {
+  animation: flipUp 0.5s forwards;
+  -webkit-animation: flipUp 0.5s forwards;
+}
+.flipUp {
+  animation: flipDown 0.5s forwards;
+  -webkit-animation: flipDown 0.5s forwards;
+}
+
+@keyframes flipUp {
+  100% {
+    transform: translate(-90deg);
+  }
+}
+@keyframes flipDown {
+  100% {
+    transform: translate(-180deg);
+  }
 }
